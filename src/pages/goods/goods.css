@@ -1,0 +1,45 @@
+.goods-footer{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  border-top: solid 1px #ccc;
+  text-align: center;
+  line-height: 50px;
+}
+.goods-footer .cart-icon{
+  flex: 1;
+  border-right: solid 1px #ccc;
+}
+.goods-footer .cart-star{
+  flex: 1;
+}
+
+.goods-footer .cart-add{
+  flex: 2;
+  background-color: rgb(255,110,130);
+  color: #fff;
+  font-size: 14px;
+}
+
+.goods-footer .cart-buy{
+  flex: 2;
+  background-color: rgb(250,0,51);
+  color: #fff;
+  font-size: 14px;
+}
+
+#good-zhezhao{
+  width: 100%;height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#goods-select-window{
+  width: 100%;
+  height: 10.6rem;
+  background-color: #fff;
+}

@@ -22,6 +22,9 @@ define(['text!./hf.html','lazyload','css!./hf.css'],function(html,lazyload){
 
                $('.waterfall-content-left').append(left.join(''));
                $('.waterfall-content-right').append(right.join(''));
+ $("img.lazy").lazyload({effect: "fadeIn",failure_limit : 20});
+
+
 
                $('.box').on('touchstart',function(e){
                   var id = $(this).data('id')
@@ -84,7 +87,7 @@ define(['text!./hf.html','lazyload','css!./hf.css'],function(html,lazyload){
   function getItem(data){
       var item =
           '<div class="box" data-id="'+data.id+'">\
-            <img src="'+data.image+'" />\
+            <img class="lazy" data-original="'+data.image+'" />\
             <div class="item-title"><h5>'+data.related_goods_name+'</h5></div>\
             <div class="item-desc">'+data.desc+'</div>\
             <div class="item-auth">\

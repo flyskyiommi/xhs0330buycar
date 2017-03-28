@@ -1,6 +1,6 @@
-define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
+define(['text!./caizhuang.html','lazyload','css!./caizhuang.css'],function(html,lazyload){
 
-  var all = {
+  var caizhuang = {
     // 数据布局到购买页面，以及index页面
       add:function(){
         $(".buy-content").html(html)
@@ -12,7 +12,7 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
           console.log(res)
 
             if(res.success == true){
-               var datas = res.data;
+               var datas = res.nanren;
                var left = [];
                var right = [];
 
@@ -50,7 +50,7 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
 
       initWaterFall:function(l){
           // 连接服务器接口，获取数据
-          this.getItems('/getall');
+          this.getItems('/nanren');
           // 注意这个；无法固定的效果一直出不来是因为没加这个
           this.scrollAppend();
           $("img.lazy").lazyload({
@@ -64,7 +64,7 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
           console.log('滚动')
 
 // 设置导航栏固定
-   if(location.hash == '#/buy/all'){
+   if(location.hash == '#/buy/caizhuang'){
 
      var scrollTop = $(window).scrollTop() + $(window).height();
 
@@ -74,7 +74,7 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
 
           if(scrollTop > $lastScroll){
 
-              that.getItems('/getall');
+              that.getItems('/caizhuang');
 
           }
 
@@ -96,17 +96,16 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
 
   function getItem(data){
       var item =
-          '<div class="box" data-id="'+data.seller_id+'">\
+          '<div class="box" data-id="'+data.id+'">\
             <img src="'+data.image+'" />\
             <div class="item-title"><h5>'+data.title+'</h5></div>\
             <div class="item-desc">'+data.desc+'</div>\
             <div class="item-price">\
-              <span>'+data.discount_price+'￥</span>\
             </div>\
           </div>'
 
       return item;
   }
 
-  return all;
+  return caizhuang;
 })

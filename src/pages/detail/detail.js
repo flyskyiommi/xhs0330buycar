@@ -1,11 +1,11 @@
 define(['text!./detail.html','css!./detail.css'],function(html){
-  var direction = {
+  var detail = {
     add:function(id){
-      // console.log('id--' + id)
-        // console.log(html)
+      console.log('id--' + id)
+        console.log(html)
         $("#main").html(html)
     }
   }
 
-  return direction;
+  return detail;
 })

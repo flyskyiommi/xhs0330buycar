@@ -44,15 +44,15 @@ app.get('/getall',function(req,res){
 
 
 
-// app.get('/life/nanren',function(req,res){
-//     fs.readFile(__dirname + '/public/data/life/nanren.json',function(err,data){
-//         if(err){
-//           console.log(err)
-//         }else {
-//           res.json(JSON.parse(data))
-//         }
-//     })
-// })
+app.get('/nanren',function(req,res){
+    fs.readFile(__dirname + '/public/data/life/nanren.json',function(err,data){
+        if(err){
+          console.log(err)
+        }else {
+          res.json(JSON.parse(data))
+        }
+    })
+})
 
 app.listen('3008',function(){
   console.log('server start...3008')

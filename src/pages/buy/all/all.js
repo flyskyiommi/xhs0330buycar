@@ -1,11 +1,11 @@
 define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
   var all = {
+    // 数据布局到购买页面
       add:function(){
-
         $(".buy-content").html(html)
       },
-      getItems:function(url){
 
+      getItems:function(url){
         $.get(url,function(res){
           console.log(res)
             if(res.success == true){
@@ -33,19 +33,32 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
             }
         })
       },
-      initWaterFall:function(l){
 
+
+      initWaterFall:function(l){
+          // 连接服务器接口，获取数据
           this.getItems('/getall');
-          // this.scrollAppend();
+
+          // 注意这个；无法固定的效果一直出不来是因为没加这个
+          this.scrollAppend();
+          
           $("img.lazy").lazyload({
             effect : "fadeIn"
           });
       },
+
+      // 设置滚动时的样式，导航栏固定
       scrollAppend:function(){
         var that = this;
+
         $(window).on('scroll',function(){
           console.log('sss')
-          var scrollTop = $(window).scrollTop() + $(window).height();
+
+// 设置导航栏固定
+   if(location.hash == '#/buy/all'){
+
+
+     var scrollTop = $(window).scrollTop() + $(window).height();
           $last =  $('.waterfall-content-left .box').last();
           var $lastScroll = $last.offset().top;
 
@@ -54,10 +67,14 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
           }
 
           if($(window).scrollTop() >= 51){
-            $('#life-menu').addClass('fixed-menu')
+            $('#buy-menu').addClass('fixed-menu')
           }else {
-            $('#life-menu').removeClass('fixed-menu')
+            $('#buy-menu').removeClass('fixed-menu')
           }
+
+   }
+
+     
         })
 
       }

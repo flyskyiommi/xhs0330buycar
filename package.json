@@ -1,7 +1,6 @@
 {
   "name": "xhsdemo",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cooleye/xhs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cooleye/xhs/issues"
+  },
+  "homepage": "https://github.com/cooleye/xhs#readme",
+  "description": ""
 }

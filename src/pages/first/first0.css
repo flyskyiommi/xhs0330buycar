@@ -1,0 +1,103 @@
+
+.first{
+  width: 100%;
+  height: 100%;
+
+  background: pink;
+}
+
+.lifestyle{
+  width: 100%;
+  /*height: 1000px;*/
+
+  background: red;
+/*加padding出现溢出*/
+  /*padding: 0 14px;*/
+  /*overflow-x: hidden;*/
+}
+
+.lifestyle .title{
+height: 38px;
+line-height: 38px;
+padding-left: 14px;
+
+}
+
+.lifestyle .up{
+  width: 100%;
+
+  display: flex;
+
+  -webkit-justify-content:space-between;
+  /*height: 100px;*/
+
+  /*background: yellow;*/
+
+box-sizing: border-box;
+  padding: 0 14px ;
+
+  margin-bottom: 30px;
+}
+
+.up1,.up2,.up3,.up4{
+  border: 1px solid black;
+  width: 21%;
+  /*height: 30px;*/
+  /*background: gold;*/
+
+  text-align: center;
+
+
+}
+
+.up1pic{
+  /*background: red;*/
+  width: 75%;
+
+  margin: 0 auto;
+
+}
+.up1pic img{
+  width: 100%;
+}
+
+
+
+
+.lifestyle .down{
+  width: 100%;
+
+  display: flex;
+
+  -webkit-justify-content:space-between;
+  /*height: 100px;*/
+
+  /*background: yellow;*/
+
+box-sizing: border-box;
+  padding: 0 14px ;
+
+  margin-bottom: 30px;
+}
+
+.down1{
+  border: 1px solid black;
+  width: 21%;
+  /*height: 30px;*/
+  /*background: gold;*/
+
+  text-align: center;
+
+
+}
+
+.down1pic{
+  /*background: red;*/
+  width: 75%;
+
+  margin: 0 auto;
+
+}
+.down1pic img{
+  width: 100%;
+}

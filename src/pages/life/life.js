@@ -7,9 +7,10 @@ var life = {
       add:function(){
         $("#main").html(html)
       },
+      
       initMenu:function(){
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 5,
+            slidesPerView: 6,
             spaceBetween: 0,
             freeMode: true,
             onTouchStart:function(swiper,event){

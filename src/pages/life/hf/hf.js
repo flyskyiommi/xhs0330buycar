@@ -1,5 +1,6 @@
 define(['text!./hf.html','lazyload','css!./hf.css'],function(html,lazyload){
   var hf = {
+    // 数据布局到life页面 以及index页面
       add:function(){
         $(".life-content").html(html)
       },
@@ -30,18 +31,34 @@ define(['text!./hf.html','lazyload','css!./hf.css'],function(html,lazyload){
             }
         })
       },
-      initWaterFall:function(l){
 
+
+
+      
+      initWaterFall:function(l){
+// 连接服务器接口，获取数据
           this.getItems('/gethf');
+          // this.getItems('/getall');
+
+
+
+          // 注意这个；无法固定的效果一直出不来是因为没加这个
           this.scrollAppend();
+          
           $("img.lazy").lazyload({
             effect : "fadeIn"
           });
       },
+
+      // 设置滚动时的样式，导航栏固定
+      
       scrollAppend:function(){
         var that = this;
+
         $(window).on('scroll',function(){
           console.log(location.hash);
+          //进行判断
+          // 设置导航栏固定
           if(location.hash == '#/life/hf'){
             var scrollTop = $(window).scrollTop() + $(window).height();
             $last =  $('.waterfall-content-left .box').last();
@@ -53,6 +70,7 @@ define(['text!./hf.html','lazyload','css!./hf.css'],function(html,lazyload){
 
             if($(window).scrollTop() >= 51){
               $('#life-menu').addClass('fixed-menu')
+              
             }else {
               $('#life-menu').removeClass('fixed-menu')
             }

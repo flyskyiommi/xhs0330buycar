@@ -2,7 +2,7 @@ require.config({
 	baseUrl:'/',
 	paths:{
 		jquery:'lib/jquery-1.12.4.min',
-		waterfall:'lib/jquery.waterfall',
+		// waterfall:'lib/jquery.waterfall',
 		text:'lib/text',
     css:'lib/css.min',
 		rem:'lib/setrem',
@@ -10,12 +10,13 @@ require.config({
 		baiduTemplate:'lib/baiduTemplate',
 		lazyload:'lib/jquery.lazyload.min',
     Router:'lib/router.min'
+
 	}
 })
 
 require(['jquery','src/myroute.js','rem'],function($,r){
 
-      location.href = '#/life'
+      location.href = '#/first'
 			// console.log(document.innerWidth)
 
 })

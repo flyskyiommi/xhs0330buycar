@@ -2,11 +2,12 @@
   width: 100%;height: 100%;
   position: relative;
   margin: 0 auto;
+
 }
 
 .swiper-container {
    width: 100%;
-   margin: 1px auto;
+   margin:0 auto;
 }
 .swiper-slide {
    text-align: center;
@@ -27,6 +28,10 @@
    -ms-flex-align: center;
    -webkit-align-items: center;
    align-items: center;
+}
+.swiper-slide:hover{
+  color: red;
+
 }
 
 .life-content{

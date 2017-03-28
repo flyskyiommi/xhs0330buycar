@@ -3,10 +3,12 @@ define(['text!./buy.html',
 'src/pages/buy/buyroute.js',
 'css!./buy.css'],function(html,Swiper){
 
-var life = {
+var buy = {
+// 排列到index
       add:function(){
         $("#main").html(html)
       },
+      // 导航栏排列
       initMenu:function(){
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 5,
@@ -23,5 +25,5 @@ var life = {
       }
   }
 
-  return life;
+  return buy;
 })

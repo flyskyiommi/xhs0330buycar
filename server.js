@@ -54,6 +54,6 @@ app.get('/nanren',function(req,res){
     })
 })
 
-app.listen('3008',function(){
-  console.log('server start...3008')
+app.listen('3020',function(){
+  console.log('server start...3020')
 })

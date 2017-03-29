@@ -22,6 +22,11 @@ define(['src/myroute.js'],function(router){
       
      })
   })
+
+
+
+
+  
 // 彩妆
    .addRoute('#/buy/caizhuang', function(req,next){
 $(".buy-content").html("<h1>彩妆</h1>")

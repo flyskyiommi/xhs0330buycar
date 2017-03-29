@@ -1,18 +1,32 @@
 define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
-
+ var _Goods = null;
   var all = {
     // 数据布局到购买页面，以及index页面
       add:function(){
-        $(".buy-content").html(html)
+        $(".buy-content").html(html);
+        this.initWaterFall();
       },
       
 
+           setGoodsInfo: function(datas){
+          _Goods = datas;
+          localStorage.goods = JSON.stringify(_Goods);
+      },
+      getGoodsInfo: function(){
+          return _Goods;
+      },
+
       getItems:function(url){
+
+         var that = this;
+
         $.get(url,function(res){
           console.log(res)
 
             if(res.success == true){
                var datas = res.data;
+
+                that.setGoodsInfo(datas);
                var left = [];
                var right = [];
 
@@ -40,7 +54,7 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
                   // console.log(id);
 
                   location.href="#/goods/" + id;
-            // console.log( location.href="#/goods/" + id);  
+            console.log('携带ID');  
              })
 
             }
@@ -50,7 +64,8 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
 
       initWaterFall:function(l){
           // 连接服务器接口，获取数据
-          this.getItems('/getall');
+          // this.getItems('/getall');
+           this.getItems('http://127.0.0.1:3020/getall');
           // 注意这个；无法固定的效果一直出不来是因为没加这个
           this.scrollAppend();
           $("img.lazy").lazyload({
@@ -74,7 +89,10 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
 
           if(scrollTop > $lastScroll){
 
-              that.getItems('/getall');
+                          that.getItems('http://127.0.0.1:3020/getall');
+
+
+              // that.getItems('/getall');
 
           }
 
@@ -96,7 +114,8 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
 
   function getItem(data){
       var item =
-          '<div class="box" data-id="'+data.seller_id+'">\
+      //data-id ,由此将相应商品信息布局到页面
+          '<div class="box" data-id="'+data.id+'">\
             <img src="'+data.image+'" />\
             <div class="item-title"><h5>'+data.title+'</h5></div>\
             <div class="item-desc">'+data.desc+'</div>\

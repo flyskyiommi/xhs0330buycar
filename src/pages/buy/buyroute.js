@@ -5,7 +5,7 @@ define(['src/myroute.js'],function(router){
 // 全部
      require(['src/pages/buy/all/all.js'],function(all){
         all.add();
-        all.initWaterFall();
+        // all.initWaterFall();
           all. getItems();
      })
   })

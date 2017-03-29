@@ -6,7 +6,7 @@ define(['Router'],function(Router){
 
 // 首页first
     .route('#/first', function(req, next){
-        //  $("#main").html('<h1>生活</h1>')
+        //  $("#main").html('<h1>首页</h1>')
         require(['src/pages/first/first.js'],function(first){
             first.add();
             first.swiper();
@@ -21,7 +21,7 @@ define(['Router'],function(Router){
         require(['src/pages/life/life.js'],function(life){
             life.add();
             life.initMenu();
-            location.href = '#/life/chuanda'
+            location.href = '#/life/hf'
         })
     })
     // 目的地
@@ -56,11 +56,27 @@ define(['Router'],function(Router){
         })
     })
     .route('#/goods/:id', function(req, next){
+        console.log('good.......');
         var id = req.params.id;
         require(['src/pages/goods/goods.js'],function(goods){
             goods.add(id);
         })
     })
+
+    .route('#/cart',function(req,next){
+    //   console.log('cart....')
+        require(['src/pages/cart/cart.js'],function(cart){
+            // console.log('------')
+            cart.init();
+        });
+    })
+
+    .route('#/order',function(req,next){
+        require(['src/pages/order/order.js'],function(om){
+            om.init();
+        });
+    })
+
 
     return router;
 })

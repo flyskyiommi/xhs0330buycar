@@ -1,8 +1,8 @@
 
-define(['text!./hf.html','lazyload','css!./hf.css'],function(html,lazyload){
+define(['text!./jiaju.html','lazyload','css!./jiaju.css'],function(html,lazyload){
  var _Goods = null;
  
-  var hf = {
+  var jiaju = {
 
 // 数据布局到buy,以及index
       add:function(){
@@ -22,7 +22,7 @@ define(['text!./hf.html','lazyload','css!./hf.css'],function(html,lazyload){
       },
 
 // 左右布局数据
-      getItemshufu:function(url){
+      getItemsjiaju:function(url){
 
  var that = this;
 
@@ -73,7 +73,7 @@ console.log(res)
 // 连接服务器接口，获取数据
           // this.getItemshufu('/gethf2');
 
-             this.getItemshufu('http://127.0.0.1:3020/gethf2');
+             this.getItemsjiaju('http://127.0.0.1:3020/gethf2');
           // this.getItems('/getall');
   // 导航栏固定
           this.scrollAppend();
@@ -100,7 +100,7 @@ console.log(res)
 
             if(scrollTop > $lastScroll){
                 // that.getItems('/gethf2');
-                that.getItemshufu('/gethf2');
+                that.getItemsjiaju('/gethf2');
             }
 
             if($(window).scrollTop() >= 51){
@@ -130,7 +130,7 @@ console.log(res)
       return item;
   }
 
-  return hf;
+  return jiaju;
 })
 
 

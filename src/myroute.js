@@ -55,14 +55,17 @@ define(['Router'],function(Router){
             detail.add(id);
         })
     })
+
+    // 跳转到商品详情页
     .route('#/goods/:id', function(req, next){
-        console.log('good.......');
+        console.log('商品详情页路由，由ID判断跳转到指定商品详情页');
         var id = req.params.id;
         require(['src/pages/goods/goods.js'],function(goods){
             goods.add(id);
         })
     })
-
+    
+// 跳转到购物车
     .route('#/cart',function(req,next){
     //   console.log('cart....')
         require(['src/pages/cart/cart.js'],function(cart){

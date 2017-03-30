@@ -4,34 +4,43 @@ define(['jquery','text!./cart.html','css!./cart.css'],function($,html){
       var cart = {
         init : function(){
             //跳转到购物车页面 
+            // myrouter.js  router('#cart')
           $('#upper-container').html(html)
           $('#upper-container').show();
 
           this.getCartData();
         },
+
+
         getCartData:function(){
 
           var that = this;
-          $.get('http://localhost:3020/getcartdata',function(res){              
+          $.get('http://localhost:3020/getcartdata',function(res){  
+            //   渲染数据            
               var htmls = baidu.template('goods-templage',res);
+            //   获取事件
               $('#goods-lists').html(htmls)
+                // 绑定
               that.bindEvent();
           })
         },
-        bindEvent : function(){
 
+        bindEvent : function(){
                 var that = this;
                 that.countTotal();
                 //全选
                 $('.selectall>.item-select').on('click',function(){
+// 全选不选，各单选也不选
                     if($(this).data('selected') == true){
                         $(this).removeClass('checkbox-select');
                         $(this).data('selected',false)
+
                         $('.single-radio>.item-select').each(function(a,b){
                             $(this).removeClass('checkbox-select');
                             $(this).data('selected',false)
                         })
                     }else{
+                        // 全选选中，各单选选中
                         $(this).addClass('checkbox-select');
                         $(this).data('selected',true)
                         $('.single-radio>.item-select').each(function(){
@@ -44,15 +53,18 @@ define(['jquery','text!./cart.html','css!./cart.css'],function($,html){
 
                 //单选
                 $('.single-radio>.item-select').on('click',function(){
+// 有一个单选未选，全选不选
                     if($(this).data('selected') == true){
                         $(this).removeClass('checkbox-select');
                         $(this).data('selected',false)
+// 全选不选
                         $('.selectall>.item-select').removeClass('checkbox-select');
                         $('.selectall>.item-select').data('selected',false)
                     }else{
+
                         $(this).addClass('checkbox-select');
                         $(this).data('selected',true)
-
+// 遍历单选
                          $('.single-radio>.item-select').each(function(){
            
                             if($(this).data('selected') == false){
@@ -64,13 +76,8 @@ define(['jquery','text!./cart.html','css!./cart.css'],function($,html){
                                  $('.selectall>.item-select').data('selected',true)
                             }
                         })
-
-                    }
-
-                   
-                    
+                    } 
                 })
-
 
                 //点击加号按钮
                 $(".add-btn").on('click',function(){
@@ -114,6 +121,8 @@ define(['jquery','text!./cart.html','css!./cart.css'],function($,html){
                     }
              });
         },
+
+        // 计算价格
         countTotal:function(){
             var _totalPrice = 0;
             $('.goods-item').each(function(){

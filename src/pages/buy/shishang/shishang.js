@@ -1,6 +1,6 @@
-define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
+define(['text!./shiahng.html','lazyload','css!./shishang.css'],function(html,lazyload){
  var _Goods = null;
-  var all = {
+  var shishang = {
     // 数据布局到购买页面，以及index页面
       add:function(){
         $(".buy-content").html(html);
@@ -17,14 +17,49 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
           return _Goods;
       },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 左右布局数据
-      getItems:function(url){
+      getItemsshishang:function(url){
+
          var that = this;
+
         $.get(url,function(res){
           console.log(res)
             if(res.success == true){
                var datas = res.data;
+
                 that.setGoodsInfo(datas);
+
                var left = [];
                var right = [];
 
@@ -60,7 +95,7 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
       initWaterFall:function(l){
           // 连接服务器接口，获取数据
           // this.getItems('/getall');
-           this.getItems('http://127.0.0.1:3020/getall');
+           this.getItemsshishang('http://127.0.0.1:3020/getall');
           // 固定导航栏
           this.scrollAppend();
           
@@ -80,7 +115,7 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
           $last =  $('.waterfall-content-left .box').last();
           var $lastScroll = $last.offset().top;
           if(scrollTop > $lastScroll){
-                          that.getItems('http://127.0.0.1:3020/getall');
+                          that.getItemsshishang('http://127.0.0.1:3020/getall');
               // that.getItems('/getall');
           }
           if($(window).scrollTop() >= 51){
@@ -112,5 +147,5 @@ define(['text!./all.html','lazyload','css!./all.css'],function(html,lazyload){
       return item;
   }
 
-  return all;
+  return shishang;
 })

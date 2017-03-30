@@ -1,18 +1,43 @@
 define(['text!./caizhuang.html','lazyload','css!./caizhuang.css'],function(html,lazyload){
 
+ var _Goods = null;
+
   var caizhuang = {
     // 数据布局到购买页面，以及index页面
       add:function(){
-        $(".buy-content").html(html)
+        $(".buy-content").html(html);
+        this.initWaterFall();
       },
       
 
-      getItems:function(url){
+
+
+// localStorage,本地存储
+           setGoodsInfo: function(datas){
+          _Goods = datas;
+          localStorage.goods = JSON.stringify(_Goods);
+      },
+      getGoodsInfo: function(){
+          return _Goods;
+      },
+
+
+      // 左右布局数据
+      getItemscaizhuang:function(url){
+
+
+         var that = this;
+
+
+
         $.get(url,function(res){
           console.log(res)
 
             if(res.success == true){
                var datas = res.nanren;
+
+that.setGoodsInfo(datas);
+
                var left = [];
                var right = [];
 
@@ -40,6 +65,7 @@ define(['text!./caizhuang.html','lazyload','css!./caizhuang.css'],function(html,
                   // console.log(id);
 
                   location.href="#/goods/" + id;
+                    console.log('携带ID');  
             // console.log( location.href="#/goods/" + id);  
              })
 
@@ -50,7 +76,7 @@ define(['text!./caizhuang.html','lazyload','css!./caizhuang.css'],function(html,
 
       initWaterFall:function(l){
           // 连接服务器接口，获取数据
-          this.getItems('/nanren');
+          this.getItemscaizhuang('/nanren');
           // 注意这个；无法固定的效果一直出不来是因为没加这个
           this.scrollAppend();
           $("img.lazy").lazyload({
@@ -74,7 +100,7 @@ define(['text!./caizhuang.html','lazyload','css!./caizhuang.css'],function(html,
 
           if(scrollTop > $lastScroll){
 
-              that.getItems('/caizhuang');
+              that.getItemscaizhuang('/caizhuang');
 
           }
 
